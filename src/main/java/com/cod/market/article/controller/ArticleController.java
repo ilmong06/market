@@ -14,8 +14,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
 import java.security.Principal;
+import java.time.LocalDateTime;
 
 @Controller
 @RequiredArgsConstructor
@@ -52,7 +52,13 @@ public class ArticleController {
     @GetMapping("/detail/{id}")
     public String detail(@PathVariable("id") Long id, Model model) {
         Article article = articleService.findById(id);
+        if (article == null) {
+            // Handle case where article is not found
+            return "redirect:/article/list"; // Redirect to list page or handle as needed
+        }
         model.addAttribute("article", article);
         return "article/detail"; // detail.html로 이동
     }
+
+
 }

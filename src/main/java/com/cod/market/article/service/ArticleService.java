@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -26,7 +27,16 @@ public class ArticleService {
     }
 
     public Article findById(Long id) {
-        return articleRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid article ID: " + id));
+        Optional<Article> optionalArticle = articleRepository.findById(id);
+        return optionalArticle.orElse(null);
+    }
+
+    public Article save(Article article) {
+        article.setModifyDate(LocalDateTime.now());
+        return articleRepository.save(article);
+    }
+
+    public void deleteById(Long id) {
+        articleRepository.deleteById(id);
     }
 }

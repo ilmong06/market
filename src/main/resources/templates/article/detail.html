@@ -1,23 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Article Detail</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}" />
-</head>
-<body>
-<div class="container">
-    <h1>Article Detail</h1>
-    <div>
-        <h2 th:text="${article.title}">Title</h2>
-        <p th:text="${article.content}">Content</p>
-        <p>
-            <strong>Created Date:</strong> <span th:text="${article.createDate}"></span><br>
-            <strong>Modified Date:</strong> <span th:text="${article.modifyDate}"></span>
-        </p>
+<html layout:decorate="~{/layout/layout}">
+<section layout:fragment="content" class="section-article-detail mt-[100px]">
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                글 상세정보
+            </div>
+            <ul class="list-group list-group-flush gap-2">
+                <li class="list-group-item">
+                    <span>제목: </span>
+                    <span class="font-bold" th:text="${article.title}"></span>
+                </li>
+                <li class="list-group-item">
+                    <span>내용: </span>
+                    <p th:text="${article.content}"></p>
+                </li>
+                <li class="list-group-item">
+                    <span>등록날짜: </span>
+                    <span th:text="${article.createDate}"></span>
+                </li>
+                <li class="list-group-item">
+                    <span>수정날짜: </span>
+                    <span th:text="${article.modifyDate}"></span>
+                </li>
+                <li class="list-group-item">
+                    <a th:href="@{|/article/edit/${article.id}|}" class="btn btn-sm btn-info">수정</a>
+                    <a th:href="@{|/article/delete/${article.id}|}" class="btn btn-sm btn-warning" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div>
-        <a th:href="@{/article/create}">Create New Article</a>
-    </div>
-</div>
-</body>
-</html>
+</section>
