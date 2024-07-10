@@ -8,8 +8,8 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Question extends BaseEntity {
-    private String title;
-    private String body;
+    private String subject;
+    private String content;
 
     @ManyToOne
     private Member member;
