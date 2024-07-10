@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{/layout/layout}">
 <head>
     <meta charset="UTF-8">
     <title>Article List</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- 부트스트랩 CSS 링크 -->
 </head>
 <body>
-<div class="container mt-4">
+<section layout:fragment="content" class="container mt-4">
     <h2>Article List</h2>
     <table class="table">
         <thead>
@@ -28,13 +26,14 @@
             <td th:text="${article.content}"></td>
             <td th:text="${article.createDate}"></td>
             <td th:text="${article.modifyDate}"></td>
+            <td>
+                <!-- 글 상세 페이지 링크 -->
+                <a th:href="@{/article/detail/{id}(id=${article.id})}" class="btn btn-info btn-sm">상세보기</a>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>
-    <!-- 글 작성 페이지로 이동하는 링크 -->
-    <a th:href="@{/article/create}" class="btn btn-primary">New Article</a>
-</div>
-<!-- 부트스트랩 JS 링크 -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</section>
 </body>
 </html>
