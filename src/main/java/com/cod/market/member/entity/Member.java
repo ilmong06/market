@@ -1,15 +1,13 @@
 package com.cod.market.member.entity;
 
 import com.cod.market.base.BaseEntity;
-import com.cod.market.qustion.entity.Question;
+import com.cod.market.question.entity.Question;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import java.time.LocalDateTime;
+
 import java.util.List;
-import static jakarta.persistence.GenerationType.IDENTITY;
+
 @Entity
 @Getter
 @Setter

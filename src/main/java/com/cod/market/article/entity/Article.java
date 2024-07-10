@@ -1,6 +1,7 @@
 package com.cod.market.article.entity;
 
 import com.cod.market.base.BaseEntity;
+import com.cod.market.member.entity.Member;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -33,4 +34,7 @@ public class Article {
 
     @LastModifiedDate
     private LocalDateTime modifyDate;
+
+    public void setMember(Member member) {
+    }
 }

@@ -7,14 +7,12 @@
 </head>
 <body>
 <h1>Create New Article</h1>
-<form action="/article/detail/{id}" method="post">
-    <label for="title">Title:</label><br>
+<form th:action="@{/article/article}" method="post">
+    <label for="title">제목:</label>
     <input type="text" id="title" name="title" required><br><br>
-
-    <label for="content">Content:</label><br>
-    <textarea id="content" name="content" rows="5" cols="40" required></textarea><br><br>
-
-    <button type="submit">Save Article</button>
+    <label for="content">내용:</label>
+    <textarea id="content" name="content" required></textarea><br><br>
+    <button type="submit">등록</button>
 </form>
 </body>
 </html>
