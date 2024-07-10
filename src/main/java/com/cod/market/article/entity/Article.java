@@ -1,5 +1,6 @@
 package com.cod.market.article.entity;
 
+import com.cod.market.base.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
