@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>게시물 상세 정보</title>
+    <title>Article Detail</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
-<h1>게시물 상세 정보</h1>
-<h2 th:text="${article.title}">제목</h2>
-<p th:text="${article.content}">내용</p>
-<p>작성일: <span th:text="${article.createDate}">2024-07-08</span></p>
-<p>수정일: <span th:text="${article.modifyDate}">2024-07-08</span></p>
+<div class="container">
+    <h1>Article Detail</h1>
+    <div>
+        <h2 th:text="${article.title}">Title</h2>
+        <p th:text="${article.content}">Content</p>
+        <p>
+            <strong>Created Date:</strong> <span th:text="${article.createDate}"></span><br>
+            <strong>Modified Date:</strong> <span th:text="${article.modifyDate}"></span>
+        </p>
+    </div>
+    <div>
+        <a th:href="@{/article/create}">Create New Article</a>
+    </div>
+</div>
 </body>
 </html>

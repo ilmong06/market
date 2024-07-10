@@ -7,7 +7,6 @@ import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-
 import java.time.LocalDateTime;
 
 @Entity
@@ -35,6 +34,11 @@ public class Article {
     @LastModifiedDate
     private LocalDateTime modifyDate;
 
+    @ManyToOne
+    @JoinColumn(name = "member_id", nullable = false)
+    private Member member;
+
     public void setMember(Member member) {
+        this.member = member;
     }
 }

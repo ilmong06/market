@@ -14,7 +14,7 @@ public class ArticleService {
 
     private final ArticleRepository articleRepository;
 
-    public void create(Member member,String title, String content) {
+    public Article create(Member member, String title, String content) {
         Article article = new Article();
         article.setMember(member);
         article.setTitle(title);
@@ -22,7 +22,7 @@ public class ArticleService {
         article.setCreateDate(LocalDateTime.now());
         article.setModifyDate(LocalDateTime.now());
 
-        articleRepository.save(article);
+        return articleRepository.save(article);
     }
 
     public Article findById(Long id) {
