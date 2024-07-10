@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Article List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- 부트스트랩 CSS 링크 -->
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Article List</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Created Date</th>
+            <th>Modified Date</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- 글 목록을 반복해서 출력하는 부분 -->
+        <tr th:each="article : ${articles}">
+            <td th:text="${article.id}"></td>
+            <td th:text="${article.title}"></td>
+            <td th:text="${article.content}"></td>
+            <td th:text="${article.createDate}"></td>
+            <td th:text="${article.modifyDate}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- 글 작성 페이지로 이동하는 링크 -->
+    <a th:href="@{/article/create}" class="btn btn-primary">New Article</a>
+</div>
+<!-- 부트스트랩 JS 링크 -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

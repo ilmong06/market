@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,9 +32,8 @@ public class ArticleService {
         return optionalArticle.orElse(null);
     }
 
-    public Article save(Article article) {
-        article.setModifyDate(LocalDateTime.now());
-        return articleRepository.save(article);
+    public List<Article> findAll() {
+        return articleRepository.findAll();
     }
 
     public void deleteById(Long id) {

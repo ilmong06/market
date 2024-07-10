@@ -23,10 +23,6 @@
                     <span>수정날짜: </span>
                     <span th:text="${article.modifyDate}"></span>
                 </li>
-                <li class="list-group-item">
-                    <a th:href="@{|/article/edit/${article.id}|}" class="btn btn-sm btn-info">수정</a>
-                    <a th:href="@{|/article/delete/${article.id}|}" class="btn btn-sm btn-warning" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a>
-                </li>
             </ul>
         </div>
     </div>

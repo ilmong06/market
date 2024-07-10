@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.security.Principal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -60,5 +61,11 @@ public class ArticleController {
         return "article/detail"; // detail.html로 이동
     }
 
+    @GetMapping("/list")
+    public String listArticles(Model model) {
+        List<Article> articles = articleService.findAll();
+        model.addAttribute("articles", articles);
+        return "article/list"; // list.html로 이동
+    }
 
 }
